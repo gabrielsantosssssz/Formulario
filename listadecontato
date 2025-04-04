@@ -1,0 +1,40 @@
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import api from "/src/services/api"; 
+ // Ajuste o caminho se necessário
+
+function ListaContatos() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    async function getUsers() {
+      try {
+        const response = await api.get("/usuarios");
+        setUsers(response.data);
+      } catch (error) {
+        console.error("Erro ao buscar usuários:", error);
+      }
+    }
+    getUsers();
+  }, []);
+
+  return (
+    <div className="container">
+      <h2>Lista de Contatos</h2>
+      <ul>
+        {users.length > 0 ? (
+          users.map((user) => (
+            <li key={user.id}>
+              {user.name} - {user.telefone} - {user.email}
+            </li>
+          ))
+        ) : (
+          <p>Nenhum contato encontrado.</p>
+        )}
+      </ul>
+      <Link to="/">Voltar para o formulário</Link>
+    </div>
+  );
+}
+
+export default ListaContatos;
