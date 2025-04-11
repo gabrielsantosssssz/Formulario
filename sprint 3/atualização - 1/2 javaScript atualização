@@ -1,0 +1,53 @@
+// Lista de contatos cadastrados
+const contatos = [
+    { nome: "", telefone: "", email: "" },
+    { nome: "", telefone: "", email: "" }
+];
+
+// Função para exibir lista de contatos
+function exibirContatos() {
+    // Ordenar contatos por nome
+    const contatosOrdenados = contatos.sort((a, b) => a.nome.localeCompare(b.nome));
+
+    // Selecionar o elemento onde a lista será exibida
+    const listaElement = document.getElementById('contatos-lista');
+    
+    // Limpar lista existente
+    listaElement.innerHTML = '';
+
+    // Adicionar os contatos ordenados à lista
+    contatosOrdenados.forEach(contato => {
+        const item = document.createElement('li');
+        item.textContent = `${contato.nome} - ${contato.telefone} - ${contato.email}`;
+        listaElement.appendChild(item);
+    });
+}
+// Definindo a variável que vai pegar o botão
+var botao = document.getElementById('Return');
+
+botao.addEventListener('click', function() {
+    // Redirecionando para outra página HTML
+    window.location.href = 'sprint1.html'; // Substitua 'pagina2.html' pelo nome do arquivo para o qual você deseja redirecionar
+});
+
+// Chama a função para exibir os contatos
+exibirContatos();
+
+const searchInput = document.getElementById('searchInput');
+const contactList = document.getElementById('contactList');
+const contacts = contactList.getElementsByTagName('li');
+
+searchInput.addEventListener('input', function () {
+    const filter = this.value.toLowerCase();
+
+    for (let i = 0; i < contacts.length; i++) {
+        const name = contacts[i].getElementsByTagName('span')[0].textContent.toLowerCase();
+        const email = contacts[i].getElementsByTagName('span')[1].textContent.toLowerCase();
+
+        if (name.includes(filter) || email.includes(filter)) {
+            contacts[i].classList.remove('hidden');
+        } else {
+            contacts[i].classList.add('hidden');
+        }
+    }
+});
