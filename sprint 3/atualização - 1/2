@@ -1,0 +1,77 @@
+ {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(45deg, #a77fc5, #ad61ab);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: #e8e2ee;
+    color: #381068;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding: 8px;
+    background-color: #e0e0e0;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.foto {
+    width: 13%;
+    position: absolute;
+    bottom:0;
+    left: 30px;
+
+}
+.botao { 
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #7b0588;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+#searchInput {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #ad61ab;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+#searchInput::placeholder {
+    color: #f4d5f5;
+}
